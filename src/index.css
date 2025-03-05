@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --computer-screen: 798px;
+}
+
+@font-face {
+  font-family: "CustomFont";
+  src: url("/fonts/ChicagoFLF.ttf") format("truetype");
+}
+
+:root {
+  font-family: "CustomFont", sans-serif;
+  background-color: black;
+}
+
+.pixelBG {
+  background-image: url(/bg.png);
+  background-repeat: repeat;
+}
+
+.screen::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 10;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.screen {
+  animation: flicker 0.2s infinite;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.93;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  background-image: url(/bg.png);
+  background-repeat: repeat;
+  border-left: 2px solid black;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-left: 2px solid black;
+}
+
+.custom-scrollbar::-webkit-scrollbar-button {
+  display: none;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  justify-items: center;
+  gap: 10px;
+  padding: 10px;
+}
