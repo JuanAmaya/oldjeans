@@ -31,11 +31,11 @@ export default function Topbar({ openInfoModal }: TopbarProps) {
             onBlur={() => handleBlur(setIsMenuOpen)}
           >
             {!isMenuOpen && (
-              <img src="/icons/Menu.png" alt="Menu Icon" className="w-5" />
+              <img src="./icons/Menu.png" alt="Menu Icon" className="w-5" />
             )}
             {isMenuOpen && (
               <img
-                src="/icons/Menu-Reverse.png"
+                src="./icons/Menu-Reverse.png"
                 alt="Menu Icon"
                 className="w-5"
               />
