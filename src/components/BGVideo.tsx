@@ -34,6 +34,8 @@ export default function BGVideo() {
             src={state.videoSrc}
             autoPlay
             loop
+            webkit-playsinline
+            playsInline
             className=" w-screen h-screen object-cover"
           />
         </motion.div>
