@@ -45,7 +45,9 @@ export default function ShowImage({
           className="border-2 p-2 cursor-pointer hover:bg-black"
           onClick={() => handleClosingImg()}
         ></button>
-        <span className="text-gray-500 text-lg">{name}.jpg</span>
+        <span className="text-gray-500 text-lg text-center w-full">
+          {name}.jpg
+        </span>
       </div>
       <div className="border-t-2 overflow-y-scroll custom-scrollbar">
         <img src={imgSrc} alt={`${name} image`} />

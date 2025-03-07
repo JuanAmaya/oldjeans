@@ -1,22 +1,37 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import DropdownOption from "./DropdownOption";
 import ShowDate from "./ShowDate";
 import { useAudioContext } from "../../context/AudioCxt";
 
 type TopbarProps = {
   openInfoModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setTurnOff: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Topbar({ openInfoModal }: TopbarProps) {
+export default function Topbar({ openInfoModal, setTurnOff }: TopbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isGoOpen, setIsGoOpen] = useState(false);
   const [isFileOpen, setIsFileOpen] = useState(false);
   const { state, setState } = useAudioContext();
 
+  const bootupRef = useRef<HTMLAudioElement>(null);
+
   const handleBlur = (func: React.Dispatch<React.SetStateAction<boolean>>) => {
     setTimeout(function () {
       func(false);
     }, 80);
+  };
+
+  const handleRestart = () => {
+    setTurnOff(true);
+    if (bootupRef.current) {
+      bootupRef.current.play().catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+    }
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   };
 
   return (
@@ -61,6 +76,7 @@ export default function Topbar({ openInfoModal }: TopbarProps) {
           )}
         </div>
         <ShowDate />
+        <audio src="./pc/bootup.mp3" ref={bootupRef} />
       </div>
 
       {isMenuOpen && (
@@ -69,10 +85,7 @@ export default function Topbar({ openInfoModal }: TopbarProps) {
             title="About"
             onClickFunc={() => openInfoModal(true)}
           />
-          <DropdownOption
-            title="Restart"
-            onClickFunc={() => location.reload()}
-          />
+          <DropdownOption title="Restart" onClickFunc={handleRestart} />
         </DropdownMenu>
       )}
 

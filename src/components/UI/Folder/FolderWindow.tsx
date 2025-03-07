@@ -70,7 +70,7 @@ export default function FolderWindow({
             className="border-2 p-2 cursor-pointer hover:bg-black"
             onClick={() => closeFolder(false)}
           ></button>
-          <span className="text-gray-500 text-lg">
+          <span className="text-gray-500 text-lg text-center w-full">
             {folderContent.name} Folder
           </span>
         </div>
@@ -80,7 +80,7 @@ export default function FolderWindow({
           <span>{folderContent.date} MB in disk</span>
         </div>
 
-        <ul className="border-t-2 mt-1 h-60 overflow-y-scroll custom-scrollbar grid-container">
+        <ul className="border-t-2 mt-1 h-60 overflow-y-scroll custom-scrollbar grid-container touch-pan-y">
           {folderContent.files.map((file) => (
             <FolderItems
               file={file}

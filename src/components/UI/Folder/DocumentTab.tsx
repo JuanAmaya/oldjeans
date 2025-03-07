@@ -102,7 +102,9 @@ export default function DocumentTab({ name, setDocState }: DocumentProps) {
           className="border-2 p-2 cursor-pointer hover:bg-black"
           onClick={() => setDocState({ isOpen: false, name: "" })}
         ></button>
-        <span className="text-gray-500 text-lg">{documentName}.txt</span>
+        <span className="text-gray-500 text-lg text-center w-full">
+          {documentName}.txt
+        </span>
       </div>
       <div className="p-4 max-h-90 overflow-y-scroll custom-scrollbar">
         <h2 className="text-xl pb-8">{title}</h2>
