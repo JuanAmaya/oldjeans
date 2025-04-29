@@ -24,7 +24,7 @@ export default function BGVideo() {
     <AnimatePresence>
       {state.videoSrc !== undefined && (
         <motion.div
-          className="absolute -z-1"
+          className="absolute -z-1 hidden md:block"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
