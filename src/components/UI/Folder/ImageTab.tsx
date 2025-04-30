@@ -32,7 +32,7 @@ export default function ShowImage({
     <motion.div
       className={`${
         focusTab === name ? "z-2" : "z-1"
-      } bg-white w-2xs md:w-70 border-2 absolute`}
+      } bg-white w-60 md:2xs md:w-70 border-2 absolute`}
       onDrag={() => setFocusTab(name)}
       onClick={() => setFocusTab(name)}
       drag
