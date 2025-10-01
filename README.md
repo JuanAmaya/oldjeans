@@ -3,6 +3,7 @@ Proyecto web basado en las interfaces de las primeras Macintosh, el usuario pued
 
 ## Tecnologías Utilizadas:
 - React
+- TypeScript
 - Tailwind CSS
 - Framer Motion
 - Vite
